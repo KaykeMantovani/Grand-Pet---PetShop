@@ -14,7 +14,7 @@ const Heart = () => (
     stroke="#FFFFFF"
     strokeWidth={3.2}
     strokeLinejoin="round"
-    transform="translate(139 48) scale(0.40)"
+    transform="translate(143 45) scale(0.40)"
   />
 );
 
