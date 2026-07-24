@@ -12,9 +12,9 @@ const Heart = () => (
     d={HEART_D}
     fill="#FCC10B"
     stroke="#FFFFFF"
-    strokeWidth={3.2}
+    strokeWidth={2}
     strokeLinejoin="round"
-    transform="translate(143 45) scale(0.40)"
+    transform="translate(139 44) scale(0.80)"
   />
 );
 
