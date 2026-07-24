@@ -8,7 +8,7 @@ const D_WHITE = "M28.09,168.44C28.19,163.88 28.41,159.83 28.64,158.25C28.85,156.
 const HEART_D =
   "M12 20.5C12 20.5 4.2 13.5 4.2 8.6C4.2 5.9 6.4 4.5 8.4 5.4C9.9 6.1 11.2 7.4 12 8.5C12.8 7.4 14.1 6.1 15.6 5.4C17.6 4.5 19.8 5.9 19.8 8.6C19.8 13.5 12 20.5 12 20.5Z";
 const Heart = () => (
-  <path d={HEART_D} fill="#FCC10B" transform="translate(122 44) scale(0.45)" />
+  <path d={HEART_D} fill="#FCC10B" transform="translate(88 50) scale(0.42)" />
 );
 
 /* Logo oficial da Grand Pet, vetorizado a partir do arquivo original */
