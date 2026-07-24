@@ -59,6 +59,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;margin
 .mark{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
 .mark-badge{width:40px;height:40px;flex:none;display:block}
 .mark-badge svg{width:100%;height:100%;display:block}
+.mark-badge img{width:100%;height:100%;display:block;border-radius:11px;object-fit:cover}
 .mark-t{display:flex;flex-direction:column;line-height:1}
 .mark-t b{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em}
 .mark-t span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2);margin-top:3px}
@@ -92,6 +93,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;margin
 .hero-art{position:relative}
 .disc{position:relative;width:100%;max-width:470px;margin:0 auto;aspect-ratio:1}
 .disc svg{width:100%;height:100%;display:block}
+.disc-img{width:100%;height:100%;display:block;border-radius:50%;object-fit:cover;box-shadow:var(--shadow)}
 .card-float{
   position:absolute;background:var(--white);border-radius:16px;padding:13px 16px;
   box-shadow:var(--shadow);display:flex;align-items:center;gap:11px;width:max-content;max-width:230px;

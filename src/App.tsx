@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LogoArt, LogoDisc } from "./Logo";
+import logoUrl from "./assets/logo.jpg";
 import { reviews, reviewCount } from "./reviews";
 import {
   Scissors, Stethoscope, ShoppingBag, PawPrint, ArrowRight, Star,
@@ -111,7 +111,7 @@ export default function App() {
         <div className="wrap nav-in">
           <a className="mark" href="#top">
             <span className="mark-badge">
-              <LogoArt rounded={11} />
+              <img src={logoUrl} alt="Grand Pet" />
             </span>
             <span className="mark-t">
               <b>Grand Pet</b>
@@ -161,7 +161,7 @@ export default function App() {
 
             <div className="hero-art">
               <div className="disc">
-                <LogoDisc />
+                <img className="disc-img" src={logoUrl} alt="Grand Pet — cão e gato" />
                 <div className="card-float f-a">
                   <span className="ic"><Scissors size={17} strokeWidth={2} /></span>
                   <span>
@@ -417,7 +417,7 @@ export default function App() {
             <div>
               <a className="mark" href="#top">
                 <span className="mark-badge">
-                  <LogoArt rounded={11} />
+                  <img src={logoUrl} alt="Grand Pet" />
                 </span>
                 <span className="mark-t">
                   <b>Grand Pet</b>
