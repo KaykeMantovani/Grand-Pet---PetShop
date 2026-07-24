@@ -3,8 +3,9 @@ import { LogoArt, LogoDisc } from "./Logo";
 import { reviews, reviewCount } from "./reviews";
 import {
   Scissors, Stethoscope, ShoppingBag, PawPrint, ArrowRight, Star,
-  Snowflake, CircleParking, Truck, MapPin, Phone, MessageCircle, Instagram,
+  Snowflake, CircleParking, Truck, MapPin, MessageCircle, Instagram,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 // Fotos reais da loja — largadas em src/assets/fotos/ (ver README lá).
 // A seção só aparece quando há foto; nada aqui é placeholder.
@@ -23,11 +24,12 @@ const PHOTOS = Object.entries(
 
 const WA = "5527996201847";
 const CEL = "(27) 99620-1847";
-const FIXO = "(27) 3072-9163";
+const WA_VET = "5527992223192";
+const CEL_VET = "(27) 99222-3192";
 const IG = "https://www.instagram.com/grand_pet_store/";
 const MAPS =
   "https://www.google.com/maps/search/?api=1&query=Grand+Pet+Av.+Antonio+Gil+Veloso+646+Praia+da+Costa+Vila+Velha";
-const wa = (m: string) => `https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
+const wa = (m: string, num: string = WA) => `https://wa.me/${num}?text=${encodeURIComponent(m)}`;
 
 const FACTS = [
   { icon: Star, text: `${reviewCount} avaliações no Google` },
@@ -36,7 +38,7 @@ const FACTS = [
   { icon: Truck, text: "Delivery em Vila Velha" },
 ];
 
-const SERVICES = [
+const SERVICES: { icon: LucideIcon; name: string; desc: string; ask: string; waNum?: string }[] = [
   {
     icon: Scissors,
     name: "Estética animal",
@@ -48,6 +50,7 @@ const SERVICES = [
     name: "Consultório veterinário",
     desc: "Consulta e acompanhamento dentro da loja, sem precisar levar o animal a outro endereço.",
     ask: "Olá! Gostaria de marcar uma consulta veterinária.",
+    waNum: WA_VET,
   },
   {
     icon: PawPrint,
@@ -65,7 +68,7 @@ const SERVICES = [
 
 const HOURS = [
   { d: "Segunda a sexta", h: "08:00 — 19:00", days: [1, 2, 3, 4, 5], o: 8, c: 19 },
-  { d: "Sábado", h: "08:00 — 18:00", days: [6], o: 8, c: 18 },
+  { d: "Sábado", h: "08:00 — 14:00", days: [6], o: 8, c: 14 },
   { d: "Domingo", h: "Fechado", days: [0], o: -1, c: -1 },
 ];
 
@@ -204,7 +207,7 @@ export default function App() {
 
             <div className="cards rv">
               {SERVICES.map((s) => (
-                <a className="card" key={s.name} href={wa(s.ask)} target="_blank" rel="noreferrer">
+                <a className="card" key={s.name} href={wa(s.ask, s.waNum)} target="_blank" rel="noreferrer">
                   <span className="ic"><s.icon size={23} strokeWidth={2} /></span>
                   <h3>{s.name}</h3>
                   <p>{s.desc}</p>
@@ -236,18 +239,18 @@ export default function App() {
                 </div>
               </div>
               <div className="phones">
-                <a className="phone" href={`tel:+55${FIXO.replace(/\D/g, "")}`}>
-                  <span className="ic"><Phone size={17} strokeWidth={2} /></span>
-                  <span>
-                    <b>{FIXO}</b>
-                    <small>Delivery e pedidos</small>
-                  </span>
-                </a>
-                <a className="phone" href={`tel:+${WA}`}>
+                <a className="phone" href={wa("Olá! Gostaria de fazer um pedido por delivery.")} target="_blank" rel="noreferrer">
                   <span className="ic"><MessageCircle size={17} strokeWidth={2} /></span>
                   <span>
                     <b>{CEL}</b>
-                    <small>WhatsApp e agendamentos</small>
+                    <small>WhatsApp da loja · pedidos e agendamentos</small>
+                  </span>
+                </a>
+                <a className="phone" href={wa("Olá! Gostaria de marcar uma consulta veterinária.", WA_VET)} target="_blank" rel="noreferrer">
+                  <span className="ic"><Stethoscope size={17} strokeWidth={2} /></span>
+                  <span>
+                    <b>{CEL_VET}</b>
+                    <small>WhatsApp do consultório veterinário</small>
                   </span>
                 </a>
               </div>
@@ -436,8 +439,8 @@ export default function App() {
 
             <div>
               <h4>Contato</h4>
-              <a href={`tel:+55${FIXO.replace(/\D/g, "")}`}>{FIXO}</a>
-              <a href={wa("Olá! Vim pelo site.")} target="_blank" rel="noreferrer">{CEL}</a>
+              <a href={wa("Olá! Vim pelo site.")} target="_blank" rel="noreferrer">{CEL} · loja</a>
+              <a href={wa("Olá! Gostaria de marcar uma consulta veterinária.", WA_VET)} target="_blank" rel="noreferrer">{CEL_VET} · consultório</a>
               <a href={IG} target="_blank" rel="noreferrer">@grand_pet_store</a>
               <a href={MAPS} target="_blank" rel="noreferrer">Google Maps</a>
             </div>
